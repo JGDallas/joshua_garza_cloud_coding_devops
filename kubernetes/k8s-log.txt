@@ -1,0 +1,13 @@
+  989  kubectl create ns monitoring
+  990  kubectl -n monitoring apply -f ./monitoring/prometheus/kubernetes/1.18.4/prometheus-operator/
+  991  kubectl -n monitoring apply -f ./monitoring/prometheus/kubernetes/1.18.4/node-exporter/
+  992  kubectl -n monitoring apply -f ./monitoring/prometheus/kubernetes/1.18.4/kube-state-metrics/\nkubectl -n monitoring apply -f ./monitoring/prometheus/kubernetes/1.18.4/alertmanager
+  993  kubectl -n monitoring apply -f ./monitoring/prometheus/kubernetes/1.18.4/prometheus-cluster-monitoring/
+  994  kubectl -n monitoring create -f ./monitoring/prometheus/kubernetes/1.18.4/grafana/
+  997  kubectl -n monitoring get all
+  998  watch kubectl -n monitoring get all
+  999  watch kubectl -n monitoring describe pod kube-state-metrics-5cd9d6f65-wm6cm
+ 1000  kubectl -n monitoring describe pod kube-state-metrics-5cd9d6f65-wm6cm
+ 1012  kubectl -n monitoring get all
+ 1088  kubectl -n monitoring get all
+ 1090  history 1 | grep monitoring

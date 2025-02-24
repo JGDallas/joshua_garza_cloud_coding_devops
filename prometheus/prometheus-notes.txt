@@ -1,0 +1,41 @@
+Monitoring: 
+
+1. Application Monitoring
+- Monitoring of applications
+- Custom telemetry
+- Process metrics : CPU, Network, IO
+
+- Custom metrics (e.g. node, python, c#)
+
+2. Infrastructure monitoring - Most important!
+- Node Exporter
+- Runs on every compute instance of your k8s cluster
+- Find CPU, Memory, Network bottlenecks.
+ 
+
+3. Kubernetes monitoring
+- kube-state-metrics (pod/cpu/memory/network)
+- API Server (CrashLoopback, etc.)
+- kubelet (containers and nodes)
+
+!!!!!!!!!!!!!!
+Don't just helm install repo for a monitoring solution. 
+Need to UNDERSTAND all the components. 
+i.e. Why do I need to monitor the kublet? 
+You don't just break your monitoring solution when you upgrade your cluster. 
+
+Strategy: 
+1. Deep level understanding of all components. 
+2. Break components out and deploy seperately
+store your deployment as IAC in Git. If the code changes, you are safe. 
+3. Maintain your level of understanding. Just because you understand today, doesn't 
+mean you will always understan. 
+
+4. Do NOT do in-place cluster upgrades. 
+Deploy a cluster every time you implement a change. 
+a. Deploy New cluster
+b. Infra as code - deployment
+c. New Prometheus code
+d. Test
+e. Then you can apply to your cluster?
+
